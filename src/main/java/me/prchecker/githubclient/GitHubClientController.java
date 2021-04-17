@@ -1,5 +1,7 @@
 package me.prchecker.githubclient;
 
+import org.eclipse.egit.github.core.Comment;
+import org.eclipse.egit.github.core.Commit;
 import org.eclipse.egit.github.core.PullRequest;
 import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.event.DeletePayload;
@@ -21,6 +23,11 @@ public class GitHubClientController {
         return githubService.getRepositories();
     }
 
+//    @GetMapping("/repos/{owner}/{repo}/commits")
+//    public List<Commit>{
+//        return githubService.getCommits();
+//    }
+
     @GetMapping("/repos/{owner}/{repo}/pulls")
     public List<PullRequest> getPullRequests(
             @PathVariable("owner") String owner,
@@ -33,6 +40,9 @@ public class GitHubClientController {
     public Repository createRepo(@RequestBody Repository newRepo) throws IOException {
         return githubService.createRepository(newRepo);
     }
+
+//    @PostMapping("/repos/{owner}/{repo}/pulls/{pull_number}/comments")
+//    public Comment
 
     @DeleteMapping("/repos/{owner}/{repo}")
     public DeletePayload deleteRepo(
