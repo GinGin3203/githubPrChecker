@@ -12,6 +12,7 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import java.util.HashSet;
 import java.util.List;
 
 public interface RepositoryInterface {
@@ -35,9 +36,4 @@ public interface RepositoryInterface {
     Call<Repository> createRepo(@Body Repository repo, @Header("Authorization") String accessToken,
                                 @Header("Accept") String apiVersionSpec,
                                 @Header("Content-Type") String contentType);
-
-//    @POST("{owner}/{repo}/checkpulls")
-//    Call<Repository> checkPullRequestNames(
-//            @Body
-//    );
 }

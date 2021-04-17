@@ -1,6 +1,6 @@
 package me.prchecker.githubclient;
 
-import me.prchecker.utils.TokenReader;
+import me.prchecker.utils.HardcodedReader;
 import org.eclipse.egit.github.core.PullRequest;
 import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.event.DeletePayload;
@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.*;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -34,7 +35,7 @@ public class GitHubService implements APIConfiguration {
 //            e.printStackTrace();
 //        }
 
-        this.accessToken = "token " + TokenReader.Companion.readToken();
+        this.accessToken = "token " + HardcodedReader.Companion.readToken();
     }
 
     public List<Repository> getRepositories() throws IOException {
